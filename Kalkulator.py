@@ -1,38 +1,27 @@
 import logging
-import sys
 logging.basicConfig(level=logging.DEBUG)
 
 def kalkulator():
-    x=input("Podaj dzialanie, poslugujac sie odpowiednia cyfra: 1 Dodawanie, 2 Odejmowanie, 3 Mnozenie, 4 Dzielenie: ")
-    y=input("Podaj skladnik 1: ")
-    z=input("Podaj skladnik 2: ")
-    x=float(x)
-    y=float(y)
-    sys.argv.append(y)
-    z=float(z)
-    sys.argv.append(z)
-    if x==1:
-        r=y+z
-        t=str("Dodaje")
-        sys.argv.append(t)
-        sys.argv.append(r)
-    elif x==2:
-        r=y-z
-        t=str("Odejmuje")
-        sys.argv.append(t)
-        sys.argv.append(r)
-    elif x==3:
-        r=y*z
-        t=str("Mnoze")
-        sys.argv.append(t)
-        sys.argv.append(r)
-    elif x==4:
-        r=y/z
-        t=str("Dziele")
-        sys.argv.append(t)
-        sys.argv.append(r)
-
-kalkulator()       
-if __name__=="__main__":
-    logging.info("%s %.2f i %.2f"%(sys.argv[3], sys.argv[1], sys.argv[2]))
-    print("Wynik to: %.2f"%sys.argv[4])
+    operation=input("Podaj dzialanie, poslugujac sie odpowiednia cyfra: 1 Dodawanie, 2 Odejmowanie, 3 Mnozenie, 4 Dzielenie: ")
+    argument_1=input("Podaj skladnik 1: ")
+    argument_2=input("Podaj skladnik 2: ")
+    operation=float(operation)
+    argument_1=float(argument_1)
+    argument_2=float(argument_2)
+    if operation==1:
+        result=argument_1+argument_2
+        logging.info(f'Dodaje {argument_1} i {argument_2}')
+        print("Wynik dodawania: ", result)
+    elif operation==2:
+        result=argument_1-argument_2
+        logging.info(f'Odejmuje {argument_2} od {argument_1}')
+        print("Wynik odejmowania: ", result)
+    elif operation==3:
+        result=argument_1*argument_2
+        logging.info(f'Mnoze {argument_1} i {argument_2}')
+        print("Wynik mnozenia: ", result)
+    elif operation==4:
+        result=argument_1/argument_2
+        logging.info(f'Dziele {argument_1} przez {argument_2}')
+        print("Wynik dzielenia: ", result)
+kalkulator()
